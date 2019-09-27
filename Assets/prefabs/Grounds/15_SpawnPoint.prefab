@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6463394225769597200}
   - component: {fileID: 6473543945280556450}
   m_Layer: 0
-  m_Name: SpawnPoint
+  m_Name: 15_SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67,7 +67,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: a8052f620d5c05a499be5d18b8d44055, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

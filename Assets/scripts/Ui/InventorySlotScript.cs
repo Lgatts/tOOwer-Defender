@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class InventorySlotScript : MonoBehaviour
+public class InventorySlotScript : MonoBehaviour, IPointerClickHandler
 {
 
     [SerializeField]
@@ -17,7 +18,10 @@ public class InventorySlotScript : MonoBehaviour
     private Text element;
 
     [SerializeField]
-    private Text price;
+    private Text memory;
+
+    [SerializeField]
+    private Text range;
 
     [SerializeField]
     private Image icon;
@@ -30,16 +34,7 @@ public class InventorySlotScript : MonoBehaviour
         {
             SetItem(item);
         }
-    }
-   
-    public void OnClick()
-    {
-        if (item != null)
-        {
-            GameManager.Instance.ClickedTowerBtn.AddTower(item);
-        }
-    }
-
+    }  
 
     public void SetItem(GameObject item)
     {
@@ -50,9 +45,17 @@ public class InventorySlotScript : MonoBehaviour
        
         icon.sprite = item.GetComponent<SpriteRenderer>().sprite;
         name.text = tower.Name;
-        price.text += tower.Price.ToString();
-        element.text += tower.Element;
-        damage.text += tower.Damage.ToString();
+        memory.text = tower.Price.ToString();
+        element.text = tower.Element;
+        damage.text = tower.Damage.ToString();
+        range.text = tower.Range.ToString();
     }
 
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (item != null)
+        {
+            GameManager.Instance.ClickedTowerBtn.AddTower(item);
+        }
+    }
 }

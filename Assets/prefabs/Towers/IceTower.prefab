@@ -95,5 +95,9 @@ MonoBehaviour:
   price: 15
   damage: 7
   range: 5
-  name: IceTower
-  element: Ice
+  name: TorreDeGelo
+  element: Gelo
+  methods:
+  - atacar();
+  pads:
+  - {fileID: 349142376107729070, guid: 555f839f7b46f5c499a4c7a1889002a9, type: 3}

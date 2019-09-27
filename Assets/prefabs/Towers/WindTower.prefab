@@ -95,5 +95,8 @@ MonoBehaviour:
   price: 5
   damage: 4
   range: 4
-  name: WindTower
-  element: Wind
+  name: TorreDeVento
+  element: Vento
+  methods: []
+  pads:
+  - {fileID: 2248823526236913110, guid: e926942dfb839414fb192f693119e1c7, type: 3}

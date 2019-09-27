@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -9,24 +10,33 @@ public class TowerBtn : MonoBehaviour, IPointerClickHandler
     private Text memoryText;
 
     [SerializeField]
-    private Sprite towerSprite;
+    private Image towerSprite;
 
     [SerializeField]
     private GameObject towerPrefab;
 
     [SerializeField]
-    private Canvas invetoryPanel;
+    private GameObject inventoryPanel;
 
     [SerializeField]
-    private Canvas towerDetails;
+    private GameObject towerMenuPanel;
+
+    [SerializeField]
+    private Color selectedColor;
+
+    [SerializeField]
+    private Color deselectedColor;
+
+    [SerializeField]
+    private Image panelColor;
 
     public GameObject TowerPrefab { get => towerPrefab; set => towerPrefab = value; }
-       
+
     public void AddTower(GameObject towerPrefab)
     {
         this.towerPrefab = towerPrefab;
-       
-        towerSprite = towerPrefab.GetComponent<SpriteRenderer>().sprite;
+
+        towerSprite.sprite = towerPrefab.GetComponent<SpriteRenderer>().sprite;
         memoryText.text = towerPrefab.GetComponent<TowerScript>().Price.ToString();
     }
 
@@ -52,32 +62,33 @@ public class TowerBtn : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (towerPrefab != null)
-        {
-            if (!invetoryPanel.enabled)
-            {
-                if (!towerDetails.enabled)
-                {
-                    towerDetails.enabled = true;
-                }
 
-                UpdateDetailsPanel();
-            }
-        }
-        else
+
+
+
+        if (!inventoryPanel.activeSelf && this.TowerPrefab == null)
         {
-            invetoryPanel.enabled = true;
-            towerDetails.enabled = false;
+            inventoryPanel.SetActive(true);
+        }
+        else if (this.TowerPrefab != null)
+        {
+            towerMenuPanel.SetActive(true);
+            towerMenuPanel.GetComponent<TowerMenuScript>().UpdatePanel();
         }
 
         GameManager.Instance.SetClickedButton(this);
+
     }
 
     public void Deselect()
     {
-
-       
-
+        this.panelColor.color = deselectedColor;
+        this.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
     }
 
+    public void Select()
+    {
+        this.panelColor.color = selectedColor;
+        this.transform.localScale = new Vector3(1.1f, 1.1f, 1.0f);
+    }
 }

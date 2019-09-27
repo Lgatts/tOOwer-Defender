@@ -95,5 +95,9 @@ MonoBehaviour:
   price: 20
   damage: 10
   range: 5
-  name: FireTower
-  element: Fire
+  name: TorreDeFogo
+  element: Fogo
+  methods:
+  - atacar();
+  pads:
+  - {fileID: 4114657058317072568, guid: bb7b1ef6a7bd10642af1dbed903223c0, type: 3}

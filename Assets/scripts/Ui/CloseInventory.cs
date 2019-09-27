@@ -4,10 +4,10 @@ using UnityEngine.EventSystems;
 public class CloseInventory : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField]
-    private Canvas invetoryCanvas;
+    private GameObject invetoryPanel;
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        invetoryCanvas.enabled = false;
+        invetoryPanel.SetActive(false);
     }
 }

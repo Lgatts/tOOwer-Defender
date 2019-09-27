@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5871501493267513155}
   - component: {fileID: 6406182615215793500}
   m_Layer: 0
-  m_Name: CornerBottomRight
+  m_Name: 01_CornerBottomRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67,7 +67,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 18c4ebb0493165449a7552308e1e8b14, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

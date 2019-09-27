@@ -44,6 +44,7 @@ public class GameManager : Singleton<GameManager>
         }
 
         this.ClickedTowerBtn = clickedTowerBtn;
+        clickedTowerBtn.Select();
 
     }
 

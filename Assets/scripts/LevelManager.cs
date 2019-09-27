@@ -9,8 +9,8 @@ public class LevelManager : Singleton<LevelManager>
     [SerializeField]
     private CameraMovement cameraMovement;
 
-    private Dictionary<Point, int> stage;
     public Dictionary<Point, GameObject> Grid { get; set; }
+    public Dictionary<Point, GameObject> Pads { get; set; }
 
 
     private int mapX = 15;
@@ -29,9 +29,9 @@ public class LevelManager : Singleton<LevelManager>
 
     private void CreateStage()
     {
-
-        stage = new Dictionary<Point, int>();
+                
         Grid = new Dictionary<Point, GameObject>();
+        Pads = new Dictionary<Point, GameObject>();
 
         int[,] map = { {02,04,04,04,04,04,04,04,04,04,04,03},
                        {06,17,05,05,05,05,05,19,17,05,05,01},
@@ -44,7 +44,7 @@ public class LevelManager : Singleton<LevelManager>
                        {02,04,04,18,07,16,04,04,04,04,18,09},
                        {00,05,05,05,05,05,05,05,05,05,05,01} };
 
-        showStage(map);
+        ShowStage(map);
 
     }
 
@@ -86,7 +86,7 @@ public class LevelManager : Singleton<LevelManager>
     }
 
 
-    private void showStage(int[,] map)
+    private void ShowStage(int[,] map)
     {
 
         Vector3 initialPoint = Camera.main.ScreenToWorldPoint(new Vector3(0, Screen.height));
@@ -103,12 +103,23 @@ public class LevelManager : Singleton<LevelManager>
             }
         }
 
+        addPads();
+
+
         GameObject maxTile = Grid[new Point(map.GetLength(1) - 1, map.GetLength(0) - 1)];
 
         cameraMovement.setLimits(new Vector3((maxTile.transform.position.x +TileSize),(maxTile.transform.position.y - TileSize), 0));
 
     }
 
+    private void addPads()
+    {
+
+
+        Pads.Add(new Point(1, 6), Instantiate(grounds[10], Grid[new Point(1, 6)].transform.position, rotation: Quaternion.identity));
+
+
+    }
 
 }
 

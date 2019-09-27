@@ -95,5 +95,9 @@ MonoBehaviour:
   price: 10
   damage: 5
   range: 5
-  name: EarthTower
-  element: Earth
+  name: TorreDeTerra
+  element: Terra
+  methods:
+  - atacar();
+  pads:
+  - {fileID: 5380772598753395759, guid: 69f7089c7bc658a44a8bf032941a1780, type: 3}
